@@ -12,11 +12,11 @@ def educationDistribution(ageGroup):
         return {0: 1, 1: 5, 2: 1}
     elif ageGroup == 3:
         return {0: 1, 1: 7, 2: 3}
-    elif ageGroup == 4:
-        return {0: 1, 1: 11, 2: 5}
 
 def incomeDistribution(age, edu):
-    return {0: 1, 1: 1 + 5 * edu * age, 2: 0.1 + edu * edu * age/2.0}
+    return {0: 1,
+            1: 1 + 5 * edu * age,
+            2: 0.1 + edu * edu * age/2.0}
 
 sexSampler = categoricalSampler(sexDistribution)
 ageGroupSampler = categoricalSampler(ageGroupDistribution)
