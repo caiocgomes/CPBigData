@@ -65,8 +65,11 @@ def genCompra():
     p = calcProbability(prod, rec, user, discount)
     return prod.prodid, rec.prodid, discount, user.sex, user.ageGroup, user.education, user.incomeGroup, int(compra(p))
 
+def generateNewBuys(n = 0):
+    if n <= 0:
+        while True:
+            yield genCompra()
+    else:
+        for i in xrange(n):
+            yield genCompra()
 
-
-while True:
-    pid, rid, discount, sex, age, edu, income, comprou = genCompra()
-    print pid, rid, discount, sex, age, edu, income, comprou
