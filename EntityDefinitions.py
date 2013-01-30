@@ -10,6 +10,7 @@ class Product(namedtuple('Product', "prodid name category price") ):
         return super(Product, cls).__new__(cls, cls._lastid, name, category, price)
 
 class User(namedtuple('User', "userid sex education incomeGroup ageGroup")):
+
     _lastid = 0
 
     def __new__(cls):
