@@ -2,31 +2,27 @@
 
 import sys
 
-currFstKey = None
-currSndKey = None
-fstKeyCount = 0
-sndKeyCount = 0
+currKey = None
+currCount = 0
 
-def getFirstKey(line):
-    return ' '.join(line.split()[0:-2]) + ' *** * '
-
-
-def computeCount(key, currentKey, count):
+def computeCount(key, count, currentKey, currentCount):
     if key == currentKey:
-        return currentKey, count + 1
+        return currentKey, currentCount + count
     else:
         if currentKey is not None:
-            print currentKey, count
-        return key, 1
+            print currentKey, '#', currentCount
+        return key, count
+
+
+def getData(data, sep = '#'):
+    key, count = data.split(sep)
+    try:
+        count = int(count.strip())
+        return key, count
+    except ValueError:
+        return key, 0
 
 for line in sys.stdin:
     data = line.strip()
-
-    fstKey = getFirstKey(data)
-    sndKey = data
-
-    currFstKey, fstKeyCount = computeCount(fstKey, currFstKey, fstKeyCount)
-    currSndKey, sndKeyCount = computeCount(sndKey, currSndKey, sndKeyCount)
-
-
-
+    key, count = getData(data)
+    currKey, currCount = computeCount(key, count, currKey, currCount)
