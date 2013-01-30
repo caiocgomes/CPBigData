@@ -67,6 +67,6 @@ def genCompra():
 
 
 
-for _ in xrange(100000):
+while True:
     pid, rid, discount, sex, age, edu, income, comprou = genCompra()
     print pid, rid, discount, sex, age, edu, income, comprou
