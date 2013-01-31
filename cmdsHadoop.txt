@@ -1,0 +1,3 @@
+hadoop jar /home/hadoop/contrib/streaming/hadoop-streaming.jar -input s3://cpapontadorbigdata/comprasdata -output s3://cpapontadorbigdata/outputfeatures -mapper s3://cpapontadorbigdata/mapperFeature -reducer s3://cpapontadorbigdata/reducer
+
+hadoop jar /home/hadoop/contrib/streaming/hadoop-streaming.jar -input s3://cpapontadorbigdata/comprasdata -output s3://cpapontadorbigdata/outputtotals -mapper s3://cpapontadorbigdata/mapperTotal -reducer s3://cpapontadorbigdata/reducer

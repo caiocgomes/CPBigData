@@ -97,7 +97,7 @@ LOdds[fraldas, 'usrAge', 2] = 0.75 * baseLodd
 LOdds[fraldas, 'usrSex', 'F'] = 0.75 * baseLodd
 LOdds[fraldas, nbPear] = -0.5 * baseLodd
 
-LOdds[carrinho, fraldas] = 500 * baseLodd
+LOdds[carrinho, fraldas] = 5000 * baseLodd
 LOdds[cerveja, fraldas] = 0.5 * baseLodd
 LOdds[cerveja, 'usrSex', 'M'] = 3 * baseLodd
 LOdds[cerveja, livroPai, 'usrSex', 'M'] = 2*baseLodd
