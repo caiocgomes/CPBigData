@@ -6,7 +6,7 @@ def printLine(xs):
         print x,
     print ''
 
-for line in generateNewBuys(n=1000):
+for line in generateNewBuys(n=0):
     printLine(line)
 
 

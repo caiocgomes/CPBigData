@@ -77,3 +77,5 @@ class LogOddsCalculator(object):
         out = (d/0.15)
         if featName == 'usrIncome':
             return out * (2.0 - featValue)
+        else:
+            return out
