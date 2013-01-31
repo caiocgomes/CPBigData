@@ -29,18 +29,17 @@ prods = [nbPear, nbHal, youPhone, robot, youClone, busPhone, mike, rei, earphone
 baseLodd = 1.0
 LOdds = LogOddsCalculator()
 
-LOdds[nbPear, 'usrIncome', 1] = baseLodd
-LOdds[nbPear, 'usrIncome', 2] = 2 * baseLodd
+for prod in prods:
+    LOdds[prod, 'usrIncome', 0] = -2*float(prod.price)/1000.0 * baseLodd
+    LOdds[prod, 'usrIncome', 1] = -float(prod.price)/3000.0 * baseLodd
+    LOdds[prod, 'usrIncome', 2] = float(prod.price)/1000.0 * baseLodd
+
 LOdds[nbPear, 'usrAge', 0] = 2 * baseLodd
 LOdds[nbPear, 'usrAge', 1] = baseLodd
-LOdds[nbPear, nbHal] = -baseLodd
+LOdds[nbPear, nbHal] = - 4* baseLodd
 
 LOdds[nbHal, 'usrAge', 2] = baseLodd
-LOdds[nbHal, 'usrIncome', 1] = baseLodd
-LOdds[nbHal, 'usrIncome', 2] = 2 * baseLodd
 
-LOdds[youPhone, 'usrIncome', 1] = baseLodd
-LOdds[youPhone, 'usrIncome', 2] = 2 * baseLodd
 LOdds[youPhone, nbPear] = baseLodd
 LOdds[youPhone, robot] = -3*baseLodd
 LOdds[youPhone, youClone] = -3*baseLodd
@@ -63,9 +62,6 @@ LOdds[busPhone, 'usrAge', 3] = baseLodd
 
 LOdds[mike, 'usrAge', 0] = 1.5 * baseLodd
 LOdds[mike, 'usrAge', 1] = baseLodd
-LOdds[mike, 'usrIncome', 1] = baseLodd
-LOdds[mike, 'usrIncome', 2] = baseLodd
-LOdds[mike, 'usrIncome', 0] = -baseLodd
 LOdds[mike, rei] = -3 * baseLodd
 
 LOdds[rei, 'usrIncome', 0] = baseLodd

@@ -3,7 +3,10 @@
 import sys
 
 for line in sys.stdin:
-    line = line.strip().split()
-    prodid, recid, discount, usrSex, usrAgeGroup, usrEducation, usrIncomeGroup, compraEfetuada = line
-    print prodid, recid, discount, compraEfetuada, '#', 1
+    try:
+        line = line.strip().split()
+        prodid, recid, discount, usrSex, usrAgeGroup, usrEducation, usrIncomeGroup, compraEfetuada = line
+        print prodid, recid, discount, compraEfetuada, 1
+    except:
+        pass
 

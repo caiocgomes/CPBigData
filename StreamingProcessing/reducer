@@ -10,19 +10,23 @@ def computeCount(key, count, currentKey, currentCount):
         return currentKey, currentCount + count
     else:
         if currentKey is not None:
-            print currentKey, '#', currentCount
+            print currentKey, currentCount
         return key, count
 
 
-def getData(data, sep = '#'):
-    key, count = data.split(sep)
+def getData(data):
+    xs = data.split()
+    key = ' '.join(xs[0:-1])
     try:
-        count = int(count.strip())
+        count = int(xs[0].strip())
         return key, count
     except ValueError:
         return key, 0
 
 for line in sys.stdin:
-    data = line.strip()
-    key, count = getData(data)
-    currKey, currCount = computeCount(key, count, currKey, currCount)
+    try:
+        data = line.strip()
+        key, count = getData(data)
+        currKey, currCount = computeCount(key, count, currKey, currCount)
+    except:
+        pass

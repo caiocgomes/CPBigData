@@ -3,10 +3,13 @@
 import sys
 
 for line in sys.stdin:
-    line = line.strip().split()
-    prodid, recid, discount, usrSex, usrAgeGroup, usrEducation, usrIncomeGroup, compraEfetuada = line
-    print prodid, recid, discount, compraEfetuada, 'sex', usrSex, '#', 1
-    print prodid, recid, discount, compraEfetuada, 'edu', usrEducation, '#', 1
-    print prodid, recid, discount, compraEfetuada, 'inc', usrIncomeGroup, '#', 1
-    print prodid, recid, discount, compraEfetuada, 'age', usrAgeGroup, '#', 1
+    try:
+        line = line.strip().split()
+        prodid, recid, discount, usrSex, usrAgeGroup, usrEducation, usrIncomeGroup, compraEfetuada = line
+        print prodid, recid, discount, compraEfetuada, 'sex', usrSex, 1
+        print prodid, recid, discount, compraEfetuada, 'edu', usrEducation, 1
+        print prodid, recid, discount, compraEfetuada, 'inc', usrIncomeGroup, 1
+        print prodid, recid, discount, compraEfetuada, 'age', usrAgeGroup, 1
+    except:
+        pass
 

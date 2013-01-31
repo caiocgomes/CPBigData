@@ -60,17 +60,20 @@ class LogOddsCalculator(object):
         priceRatio = (float(recomendation.price) / float(product.price))
         productIndividualInfluence = self[product,] + self[recomendation,]
         productPairInfluence = self[product, recomendation]
-        return productIndividualInfluence + productPairInfluence + self.priceFunction(priceRatio) + self.discountFunction(discount)
+        categoryEffect = -0.5 * float(product.category == product.category)
+        return productIndividualInfluence + productPairInfluence + self.priceFunction(priceRatio) + self.discountFunction(discount) + categoryEffect
 
     def logOdds(self, product, recomendation, discount, featureName, featureValue):
         featurePairEffect = self[product, recomendation, featureName, featureValue]
         featureSingleEffect = self[product, featureName, featureValue] + self[recomendation, featureName, featureValue]
-        return self.logOddsPrior(product, recomendation, discount) + featureSingleEffect + featurePairEffect
+        discountEffect = self.discountFunction(discount, featName = featureName, featValue = featureValue)
+        return self.logOddsPrior(product, recomendation, discount) + featureSingleEffect + featurePairEffect + discountEffect
 
     def priceFunction(self, ratio):
         out = (1.0 - ratio) ** 21 / 2.0
         return out
 
-    def discountFunction(self, d):
-        out = (d + d/ (1.0 - d * d)) * 0.5
-        return out
+    def discountFunction(self, d, featName = None, featValue = None):
+        out = (d/0.15)
+        if featName == 'usrIncome':
+            return out * (2.0 - featValue)
